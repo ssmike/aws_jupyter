@@ -130,4 +130,4 @@ chown "$NORMAL_USER":"$NORMAL_USER" * -R
 
 echo "Running jupyter in screen"
 
-sudo -u "$NORMAL_USER" screen -m -d -S "jupyter" bash -c "source $PWD/env/bin/activate; source "$NORMAL_HOME"/.bashrc ; jupyter-notebook --ip=0.0.0.0 --NotebookApp.token='' --port=8000 --no-browser"
+sudo -u "$NORMAL_USER" screen -m -d -S "jupyter" bash -c "source $PWD/env/bin/activate; source "$NORMAL_HOME"/.bashrc ; jupyter-notebook --ip=0.0.0.0 --NotebookApp.token='' --port=8888 --no-browser"
