@@ -39,7 +39,7 @@ export LC_CTYPE=en_US.UTF-8
 
 echo "Installing common packages"
 
-apt-get update && apt-get upgrade -y && apt-get install -y python3-dev python-virtualenv python3-numpy python-numpy python-scipy python-dev python-pip python-nose g++ libblas-dev git cmake gfortran liblapack-dev python3-matplotlib zlib1g-dev libjpeg-dev xvfb libav-tools xorg-dev python-opengl libboost-all-dev libsdl2-dev swig screen zsh clang clang-tidy clang-format unzip htop npm nodejs-legacy
+apt-get update && apt-get upgrade -y && apt-get install -y python3-dev python-virtualenv python3-numpy python-numpy python-scipy python-dev python-pip python-nose g++ libblas-dev git cmake gfortran liblapack-dev python3-matplotlib zlib1g-dev libjpeg-dev xvfb libav-tools xorg-dev python-opengl libboost-all-dev libsdl2-dev swig screen zsh clang clang-tidy clang-format unzip htop npm nodejs-legacy tmux
 
 npm install -g configurable-http-proxy
 
@@ -130,5 +130,5 @@ chown "$NORMAL_USER":"$NORMAL_USER" * -R
 
 echo "Running jupyter in screen"
 
-sudo -u "$NORMAL_USER" screen -m -d -S "jupyter" bash -c "source $PWD/env/bin/activate; source "$NORMAL_HOME"/.bashrc ; jupyter-notebook --ip=0.0.0.0 --port=8888 --no-browser"
+sudo -u "$NORMAL_USER" tmux new -s jupyter -c new-window bash -c "source $PWD/env/bin/activate; source "$NORMAL_HOME"/.bashrc ; jupyter-notebook --ip=0.0.0.0 --port=8888 --no-browser"
 bash -c "source $PWD/env/bin/activate; jupyter notebook list"
